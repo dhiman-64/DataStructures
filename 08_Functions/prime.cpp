@@ -1,13 +1,13 @@
 #include<iostream>
 using namespace std;
 
-bool isPrime(int n){
-    int d = 2;
-    while(d<n){
-        if(n%d==0){
+bool isPrime(int n)
+{
+    if(n==1) return false;
+    for(int i=2 ; i<n ; i++){
+        if(n%i==0){
             return false;
         }
-        d++;
     }
     return true;
 }
@@ -17,6 +17,6 @@ int main()
 {
     int n;
     cin>>n;
-    bool ans = (isPrime(n));
-    cout<<ans<<endl;
+    if(isPrime) cout<<"Prime";
+    else cout<<"not prime";
 }
