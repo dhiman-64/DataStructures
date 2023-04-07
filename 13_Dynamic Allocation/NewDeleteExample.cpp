@@ -30,5 +30,4 @@ int main ()
 
     // this freeing of space was not done in statically allocated as compiler takes care of it auto
     // when the variables go out of scope (Allocation/De-Allocation is done by compiler)
-
-    
+}
