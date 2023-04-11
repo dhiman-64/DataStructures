@@ -21,7 +21,16 @@ class Student {
         return age;
     }
 
-    void setAge(int a){
+    void setAge(int a, int password ){
+        
+        // Constrain
+
+        if(password!=1234){
+            return;
+        }
+        if(age<0){
+            return;
+        }
         age = a;
     }
 };
