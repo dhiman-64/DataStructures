@@ -14,6 +14,14 @@ class Student {
     public:
 
     void display(){
-        cout<<age<<" "<<rollNumber;
+        cout<<age<<" "<<rollNumber<<endl;
+    }
+
+    int getAge(){
+        return age;
+    }
+
+    void setAge(int a){
+        age = a;
     }
 };
