@@ -31,7 +31,7 @@ class Fraction {
         this->deno= this->deno/gcd;
     }
 
-    void add(Fraction f2){
+    void add(Fraction const &f2){
         int lcm = deno * f2.deno;
         int x = lcm/deno;
         int y = lcm / f2.deno;
@@ -41,6 +41,12 @@ class Fraction {
         num = number;
         deno = lcm;
 
+        simplify();
+    }
+
+    void multiply(Fraction const &f2){
+        num = num *f2.num;
+        deno = deno*f2.deno;
         simplify();
     }
 
