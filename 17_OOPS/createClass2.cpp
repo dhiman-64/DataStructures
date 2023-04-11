@@ -13,6 +13,7 @@ class Student {
 
     public:
 
+    // Getter -> EXAMPLE
     void display(){
         cout<<age<<" "<<rollNumber<<endl;
     }
@@ -21,6 +22,7 @@ class Student {
         return age;
     }
 
+    // SETTER -> EXAMPLE
     void setAge(int a, int password ){
         
         // Constrain
