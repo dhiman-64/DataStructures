@@ -22,7 +22,7 @@ Node* TakeInput()
         Node *newNode = new Node(data);
         if(head == NULL){
             head = newNode;
-        }
+        } 
         else{
             Node *temp = head;
             while(temp->next != NULL){
@@ -52,3 +52,5 @@ int main()
     Node * head = TakeInput();
     print(head);
 }
+
+

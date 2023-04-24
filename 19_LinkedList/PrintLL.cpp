@@ -50,5 +50,5 @@ int main()
 
     // Print the linked list
     print(head);
-    print(head);
+    // print(head);
 }

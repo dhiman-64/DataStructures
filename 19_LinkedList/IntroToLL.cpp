@@ -20,6 +20,7 @@ int main()
     Node* head = &n1;
 
     Node n2(20); // tail
+    // Link the Nodes Together
     n1.next = &n2;
 
 
