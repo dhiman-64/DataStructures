@@ -11,8 +11,13 @@ class Node{
     }
 };
 
-void insertAtTail(Node* &tail, int data)
+void insertAtTail(Node* &head, Node* &tail, int data)
 {
+    if(tail == NULL){
+        Node* newNode = new Node(data);
+        head = newNode;
+        tail = newNode;
+    }
     Node* newNode = new Node(data);
     tail->next = newNode;
     tail = tail->next; 
@@ -36,11 +41,11 @@ int main()
     
     print(head);
 
-    insertAtTail(tail, 20);
+    insertAtTail(head,tail, 20);
     print(head);
-    insertAtTail(tail, 30);
+    insertAtTail(head,tail, 30);
     print(head);
-    insertAtTail(tail, 40);
+    insertAtTail(head,tail, 40);
     print(head);
 
 }
