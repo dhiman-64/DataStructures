@@ -21,15 +21,25 @@ void print(Node* &head)
     cout<<endl;
 }
 
-void insertAtHead(Node* &head, int data)
+void insertAtHead(Node* &head, Node* &tail, int data)
 {
+    if(head == NULL){
+        Node* newNode = new Node(data);
+        head = newNode;
+        tail = newNode;
+    }
     Node* newNode = new Node(data);
     newNode->next = head;
     head = newNode;
 }
 
-void insertAtTail(Node* &tail , int data)
+void insertAtTail(Node* &head,Node* &tail , int data)
 {
+    if(tail == NULL){
+        Node*newNode = new Node(data);
+        head = newNode;
+        tail = newNode;
+    }
     Node* newNode = new Node(data);
     tail->next  = newNode;
     tail = tail->next;
@@ -41,7 +51,7 @@ void insertAtMiddle(Node* &head , Node* &tail, int position , int data)
 {
     //Starting Case
     if(position == 1){
-        insertAtHead(head, data);
+        insertAtHead(head,tail, data);
         return;
     }
     
@@ -55,7 +65,7 @@ void insertAtMiddle(Node* &head , Node* &tail, int position , int data)
 
     // Last Case
     if(temp->next == NULL){
-        insertAtTail(tail, data);
+        insertAtTail(head,tail, data);
         return;
     }
 
@@ -74,13 +84,13 @@ int main()
     Node* tail = n1;
     print(head);
 
-    insertAtTail(tail,10);
+    insertAtTail(head,tail,10);
     print(head);
 
-    insertAtTail(tail,15);
+    insertAtTail(head,tail,15);
     print(head);
 
-    insertAtTail(tail,25);
+    insertAtTail(head,tail,25);
     print(head);
 
     insertAtMiddle(head, tail, 4, 20);
