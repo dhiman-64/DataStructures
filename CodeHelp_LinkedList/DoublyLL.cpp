@@ -36,27 +36,41 @@ int getLength(Node* head)
     return len;
 }
 
-void insertAtHead(Node* &head, int data)
+void insertAtHead(Node* &head, Node* &tail, int data)
 {
-    Node* newNode = new Node(data);
-    newNode->next = head;
-    head->prev = newNode;
-    head = newNode;
+    if(head == NULL){
+        Node* newNode = new Node(data);
+        head = newNode; 
+        tail = newNode;
+    }
+    else{
+        Node* newNode = new Node(data);
+        newNode->next = head;
+        head->prev = newNode;
+        head = newNode;
+    }
 }
 
-void insertAtTail(Node* &tail , int data)
+void insertAtTail(Node* &head, Node* &tail , int data)
 {
-    Node* newNode = new Node(data);
-    tail->next = newNode;
-    newNode->prev = tail;
-    tail = tail->next;
+    if(tail == NULL){
+        Node* newNode = new Node(data);
+        tail = newNode;
+        head = newNode;
+    }
+    else{
+        Node* newNode = new Node(data);
+        tail->next = newNode;
+        newNode->prev = tail;
+        tail = tail->next;
+    }
 }
 
 void insertMiddle(Node* &head, Node* &tail, int position, int data)
 {
     // First Case
     if(position == 1){
-        insertAtHead(head, data);
+        insertAtHead(head,tail, data);
         return;
     }
 
@@ -69,7 +83,7 @@ void insertMiddle(Node* &head, Node* &tail, int position, int data)
 
     // Last Case
     if(temp->next == NULL){
-        insertAtTail(tail,data);
+        insertAtTail(head,tail,data);
         return;
     }
 
@@ -90,24 +104,24 @@ int main()
     print(head);
     cout<<"Len: "<<getLength(head)<<endl;
 
-    insertAtHead(head , 20);
+    insertAtHead(head , tail, 20);
     print(head);
 
-    insertAtHead(head , 30);
+    insertAtHead(head ,tail, 30);
     print(head);
 
-    insertAtHead(head , 40);
+    insertAtHead(head ,tail, 40);
     print(head);
 
     cout<<endl;
 
-    insertAtTail(tail , 20);
+    insertAtTail(head, tail , 20);
     print(head);
 
-    insertAtTail(tail, 30);
+    insertAtTail(head, tail, 30);
     print(head);
 
-    insertAtTail(tail , 40);
+    insertAtTail(head, tail , 40);
     print(head);
 
     cout<<endl;
