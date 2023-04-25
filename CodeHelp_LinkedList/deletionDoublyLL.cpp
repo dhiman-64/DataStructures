@@ -12,6 +12,16 @@ class Node{
         this->prev = NULL;
         this->next = NULL;
     }
+    // Deconstructor
+    ~Node(){
+        int value = this->data;
+        if(next != NULL)
+        {
+            delete next;
+            next = NULL;
+        }
+        cout<<"Free Mem: "<<value<<endl;
+    }
 };
 
 void print(Node* head)
@@ -80,6 +90,41 @@ void insertMiddle(Node* &head, Node* &tail, int position, int data)
     newNode->prev = temp;
 }
 
+
+
+
+
+// Delete Code for Doubly Linked List
+void deleteNode(int position, Node* &head)
+{
+    if(position == 1){
+        Node* temp = head;
+        temp->next->prev = NULL;
+        head = temp->next;
+        temp->next = NULL;
+        delete temp;
+    }
+    else{
+        Node* curr = head;
+        Node* prev = NULL;
+
+        int count = 1;
+        while(count < position-1){
+            prev = curr;
+            curr = curr->next;
+            count++;
+        }
+        curr->prev = NULL;
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+    }
+}
+
+
+
+
+
 int main()
 {
     Node* n1 = new Node(10);
@@ -103,6 +148,12 @@ int main()
     print(head);
 
     insertMiddle(head, tail, 6, 35);
+    print(head);
+
+    deleteNode(1, head);
+    print(head);
+
+    deleteNode(8, head);
     print(head);
 
 }
