@@ -10,6 +10,16 @@ class Node{
         this->data = data;
         this->next = NULL;
     }
+
+    // Deconstructor
+    ~Node(){
+        int value = this->data;
+        if(this->next != NULL){
+            delete next;
+            this->next = NULL;
+        }
+        cout<<"Free Mem: "<<value<<endl;
+    }
 };
 
 void print(Node* head)
@@ -19,6 +29,7 @@ void print(Node* head)
         cout<<temp->data<<" ";
         temp = temp->next;
     }
+    cout<<endl;
 }
 
 void insertAtHead(Node* &head, Node* &tail, int data)
@@ -70,6 +81,29 @@ void insertAtMiddle(Node* &head, Node* &tail, int position, int data)
     Node* newNode = new Node(data);
     newNode->next = temp->next;
     head->next = newNode;
+}
+
+void deletionNode(int position, Node* &head){
+    if(position == 1){
+        Node* temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+    else{
+        Node* curr = head;
+        Node* prev = NULL;
+
+        int count = 1;
+        while(count < position-1){
+            prev = curr;
+            curr = curr->next;
+            count++;
+        }
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+    }
 }
 
 int main()
