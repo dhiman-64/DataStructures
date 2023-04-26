@@ -1,1 +1,1 @@
-tail->next = newNode;
+print(head);
