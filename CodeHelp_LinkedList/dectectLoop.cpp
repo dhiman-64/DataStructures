@@ -87,6 +87,7 @@ bool detectLoops(Node* head)
 
         // Cycle is present
         if(visited[temp] == true){
+            cout<<"Present on element: "<<temp->data<<endl;
             return true;
         }
 
