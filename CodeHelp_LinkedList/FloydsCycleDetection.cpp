@@ -88,7 +88,7 @@ Node* FloydCycle(Node* head)
         }
         slow = slow->next;
 
-        if(slow == false){
+        if(slow == fast){
             cout<<"Present At: "<<slow->data<<endl;
             return slow;
         }
