@@ -5,7 +5,7 @@ class Node{
     public:
     int data;
     Node* next;
-
+    //Constructor
     Node(int data){
         this->data = data;
         this->next = NULL;
@@ -14,7 +14,7 @@ class Node{
     // Deconstructor
     ~Node(){
         int value = this->data;
-        if(this->next != NULL){
+        while(this->next != NULL){
             delete next;
             this->next = NULL;
         }
@@ -32,95 +32,106 @@ void print(Node* head)
     cout<<endl;
 }
 
-void insertAtHead(Node* &head, Node* &tail, int data)
+void insertAtHead(Node* &head, int data)
 {
-    if(head == NULL){
+    if(head == NULL)
+    {
         Node* newNode = new Node(data);
         head = newNode;
-        tail = newNode;
     }
-    else{
-        Node* newNode = new Node(data);
-        newNode->next = head;
-        head = newNode;
-    }
+    Node* newNode = new Node(data);
+    newNode->next = head;
+    head = newNode;
 }
 
-void insertAtTail(Node* &head, Node* &tail, int data)
+void insertAtTail(Node* &tail, int data)
 {
-    if(tail == NULL){
+    if(tail == NULL)
+    {
         Node* newNode = new Node(data);
-        head = newNode;
         tail = newNode;
     }
-    else{
-        Node* newNode = new Node(data);
-        tail->next = newNode;
-        tail = tail->next;
-    }
+    Node* newNode = new Node(data);
+    tail->next = newNode;
+    tail = tail->next;
 }
 
-void insertAtMiddle(Node* &head, Node* &tail, int position, int data)
+void insertAtMiddle(Node* &head, Node* &tail, int i, int data)
 {
-    if(position == 1){
-        insertAtHead(head, tail, data);
+    // First Node insertion
+    if(i == 1)
+    {
+        insertAtHead(head, data);
         return;
     }
-    // Traverse
+    
+    //Traversal 
     int count = 1;
     Node* temp = head;
-    while(count < position-1){
+    while( count < i-1){
         temp = temp->next;
         count++;
     }
-
-    if(temp->next == NULL){
-        insertAtTail(head, tail, data);
+    // Last Node
+    if(temp->next == NULL)
+    {
+        insertAtTail(tail, data);
         return;
     }
+    // Middle Insertion
     Node* newNode = new Node(data);
     newNode->next = temp->next;
-    temp->next = newNode; 
+    temp->next = newNode;
 }
 
-void deletionNode(int position, Node* &head){
-    if(position == 1){
+void deleteNode(int i, Node* &head)
+{
+    // Edge Case -> First Position
+    if(i == 1)
+    {
         Node* temp = head;
         head = head->next;
         temp->next = NULL;
-        delete temp;
+        delete temp; 
     }
-    else{
+    else
+    {
         Node* curr = head;
         Node* prev = NULL;
 
         int count = 0;
-        while(count < position-1){
+        while(count < i-1)
+        {
             prev = curr;
             curr = curr->next;
             count++;
         }
         prev->next = curr->next;
         curr->next = NULL;
-        delete curr;
+        delete curr;        
     }
 }
 
 int main()
 {
-    Node* n1 = new Node(10);
+    Node* n1 = new Node(1);
     Node* head = n1;
     Node* tail = n1;
-
-    insertAtHead(head, tail, 20);
-    insertAtHead(head, tail, 30);
+    
+    insertAtHead(head,2);
+    insertAtHead(head,3);
     print(head);
 
-    insertAtTail(head, tail, -20);
-    insertAtTail(head, tail, -30);
+    insertAtTail(tail,4);
+    insertAtTail(tail,5);
     print(head);
 
-    insertAtMiddle(head, tail, 3, 4000);
-    insertAtMiddle(head, tail, 5, 100000);
+    insertAtMiddle(head, tail, 1, 0);
+    insertAtMiddle(head, tail, 7, 100);
+    insertAtMiddle(head, tail, 4, 888);
     print(head);
+
+    deleteNode(4, head);
+    print(head);
+
 }
