@@ -1,6 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// T(N) = O(N)
+// S(N) = O(1)
+
+// Kadanes Algorithm
 int maxSubArray(int arr[], int n)
 {
     int maxi = INT_MIN;
