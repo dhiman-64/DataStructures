@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// T(N) = O(N)
+// S(N) = O(1)
+
 int maxProfit(int prices[], int n)
 {
     int minPrice = INT_MAX;
