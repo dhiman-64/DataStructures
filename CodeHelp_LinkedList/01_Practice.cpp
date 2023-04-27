@@ -80,7 +80,7 @@ void insertAtMiddle(Node* &head, Node* &tail, int position, int data)
     }
     Node* newNode = new Node(data);
     newNode->next = temp->next;
-    head->next = newNode;// galat hai 
+    temp->next = newNode; 
 }
 
 void deletionNode(int position, Node* &head){
