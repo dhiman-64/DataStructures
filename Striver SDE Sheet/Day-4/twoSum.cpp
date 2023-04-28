@@ -1,7 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
+// T(N) = O(N)
+// S(N) = O(N)
+ 
 vector<int> twoSum(int arr[], int n, int target)
 {
     map<int ,int > mpp;
