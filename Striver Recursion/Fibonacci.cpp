@@ -1,5 +1,5 @@
-T(N) = O(2^n)
-S(N) = (N)
+// T(N) = O(2^n)
+// S(N) = (N)
 
 #include<iostream>
 using namespace std;
