@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// T(N) = O(NlogN)
+// S(N) = O(N)
+
 
 void print(int arr[], int n)
 {
