@@ -47,6 +47,40 @@ Node* takeInput()
     return head;
 }
 
+
+int getLength(Node* head)
+{
+    int len = 0;
+    while(head != NULL)
+    {
+        len++;
+        head = head->next;
+    }
+    return len;
+}
+
+
+Node* middle(Node* head)
+{
+    int len = getLength(head);
+    int ans = (len/2);
+
+    Node*temp = head;
+    int count = 0;
+    while(count < ans)
+    {
+        temp = temp->next;
+        count++;
+    }
+    return temp;
+}
+
+
+
+
+/* Optimised Approach
+
+
 Node* getmiddle(Node* head)
 {
     if(head == NULL || head->next == NULL)
@@ -77,6 +111,9 @@ Node* middle(Node* head)
 {
     return getmiddle(head);
 }
+
+*/
+
 
 int main()
 {
