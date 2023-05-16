@@ -78,12 +78,18 @@ Node* reverseLL(Node* head)
 */
 
 
-Node* reverseII(Node* &head)
+Node* reverseII(Node* head)
 {
     if(head == NULL || head->next == NULL)
     {
         return head;
     }
+
+    Node* chotaHead = reverseII(head->next);
+    head->next->next = head;
+    head->next = NULL;
+
+    return chotaHead;
 
 }
 
