@@ -26,9 +26,9 @@ void insertAtTail(Node* &tail , int data)
     tail = tail->next;
 }
 
-void insertAtMiddle(Node* &head, Node* &tail, int data, int k)
+void insertAtMiddle(Node* &head, Node* &tail, int k, int data)
 {
-    if(k == 0)
+    if(k == 1)
     {
         insertAtHead(head, data);
         return;
@@ -48,13 +48,11 @@ void insertAtMiddle(Node* &head, Node* &tail, int data, int k)
         count++;
     }
     Node* newNode = new Node(data);
-    Node* forward = temp->next;
-    
+    newNode->next = temp->next;
     temp->next = newNode;
-    newNode->next = forward;
 
 }
-
+ 
 void print(Node* &head)
 {
     Node* temp = head;
@@ -71,19 +69,16 @@ int main()
     Node* n1 = new Node(10);
     Node* head = n1;
     Node* tail = n1;
-    insertAtHead(head, 20);
-    insertAtHead(head, 30);
+    insertAtHead(head, 12);
     print(head);
 
-    insertAtTail(tail, -10);
-    insertAtTail(tail, -20);
-    insertAtTail(tail, -30);
+    insertAtTail(tail, 15);
     print(head);
 
-    insertAtMiddle(head, tail, 100 , 5);
+    insertAtMiddle(head, tail, 4, 22);
     print(head);
-    insertAtMiddle(head, tail, 80 , 0);
+    insertAtMiddle(head, tail, 1, 220);
     print(head);
-    insertAtMiddle(head, tail, 80 , 9);
+    insertAtMiddle(head, tail, 3, 999999);
     print(head);
 }
