@@ -45,7 +45,13 @@ void deleteNode(Node* &tail , int value)
             curr = curr->next;
         }
         prev->next = curr->next;
-        if(tail == curr)
+
+        if(curr == prev)
+        {
+            tail = NULL;
+        }
+
+        else if(tail == curr)
         {
             tail = prev;
         }
@@ -82,6 +88,13 @@ void insertNode(Node* &tail , int element , int data)
 void print(Node* tail)
 {
     Node* temp = tail;
+
+    if(tail == NULL)
+    {
+        cout<<"List is Empty: "<<endl;
+        return;
+    }
+
     do{
         cout<<tail->data<<" ";
         tail = tail->next;
