@@ -35,18 +35,37 @@ void print(Node* head)
     cout<<endl;
 }
 
-void AtHead(Node* &head, int data)
+void insertAtHead(Node* &head,Node* &tail, int data)
 {
-    Node* newNode = new Node(data);
-    newNode->next = head;
-    head = newNode;
+    if(head == NULL)
+    {
+        Node* newNode = new Node(data);
+        head = newNode;
+        tail = newNode;
+    }
+    else
+    {
+        Node* newNode = new Node(data);
+        newNode->next = head;
+        head = newNode;
+    }
 }
 
-void AtTail(Node* &tail , int data)
+void insertAtTail(Node* &tail ,Node* &head ,int data)
 {
-    Node* newNode = new Node(data);
-    tail->next = newNode;
-    tail = tail->next;
+    if(tail == NULL)
+    {
+        Node* newNode = new Node(data);
+        head = newNode;
+        tail = newNode;
+    }
+    else
+    {
+        Node* newNode = new Node(data);
+        tail->next = newNode;
+        tail = tail->next;
+    }
+    
 }
 
 
@@ -91,9 +110,9 @@ int main()
     Node* head = n1;
     Node* tail = n1;
 
-    AtHead(head, 0);
-    AtTail(tail, 2);
-    AtTail(tail, 3);
+    insertAtHead(head,tail, 0);
+    insertAtTail(tail,head, 2);
+    insertAtTail(tail,head, 3);
     print(head);
 
     deleteNode(1, head);
