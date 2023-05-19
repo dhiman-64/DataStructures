@@ -13,11 +13,20 @@ class Node{
     }
 };
 
-void insertAtHead(Node* &head, int data)
+void insertAtHead(Node* &head,Node* &tail, int data)
 {
-    Node* newNode = new Node(data);
-    newNode->next = head;
-    head = newNode;
+    if(head == NULL)
+    {
+        Node* newNode = new Node(data);
+        head = newNode;
+        tail = newNode;
+    }
+    else
+    {
+        Node* newNode = new Node(data);
+        newNode->next = head;
+        head = newNode;
+    }
 }
 
 void print(Node* head)
@@ -33,10 +42,17 @@ void print(Node* head)
 
 int main()
 {
+    /*
     Node* n1 = new Node(1);
     Node* head = n1;
+    Node* tail = n1;
+    */
 
-    insertAtHead(head , 2);
-    insertAtHead(head , 3);
+   Node* head = NULL;
+   Node* tail = NULL;
+
+    insertAtHead(head , tail, 3);
+    insertAtHead(head , tail, 2);
+    insertAtHead(head , tail, 1);
     print(head);
 }
