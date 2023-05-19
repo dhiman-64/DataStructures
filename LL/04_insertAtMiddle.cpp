@@ -24,18 +24,37 @@ void print(Node* head)
     cout<<endl;
 }
 
-void insertAtHead(Node* & head, int data)
+void insertAtHead(Node* & head,Node* &tail, int data)
 {
-    Node* newNode = new Node(data);
-    newNode->next = head;
-    head = newNode;
+    if(head == NULL)
+    {
+        Node* newNode = new Node(data);
+        head = newNode;
+        tail = newNode;
+    }
+
+    else
+    {
+        Node* newNode = new Node(data);
+        newNode->next = head;
+        head = newNode;
+    }
 }
 
-void insertAttail(Node* &tail , int data)
+void insertAttail(Node* &tail ,Node* &head, int data)
 {
-    Node* newNode = new Node(data);
-    tail->next = newNode;
-    tail = tail->next;
+    if(tail == NULL)
+    {
+        Node* newNode = new Node(data);
+        head = newNode;
+        tail = newNode;
+    }
+    else
+    {
+        Node* newNode = new Node(data);
+        tail->next = newNode;
+        tail = tail->next;
+    }
 }
 
 
@@ -45,7 +64,7 @@ void insertAtMiddle(Node* &head , Node* &tail , int k , int data)
     // Insert At First Position
     if(k == 1)
     {
-        insertAtHead(head , data);
+        insertAtHead(head ,tail, data);
         return;
     }
 
@@ -61,7 +80,7 @@ void insertAtMiddle(Node* &head , Node* &tail , int k , int data)
     // Insert At Last Position 
     if(temp->next == NULL)
     {
-        insertAttail(tail , data);
+        insertAttail(tail , head, data);
         return;
     }
 
@@ -79,10 +98,10 @@ int main()
     Node* head = n1;
     Node* tail = n1;
 
-    insertAttail(tail , 2);
-    insertAttail(tail , 3);
-    insertAttail(tail , 4);
-    insertAttail(tail , 5);
+    insertAttail(tail ,head,  2);
+    insertAttail(tail ,head, 3);
+    insertAttail(tail , head, 4);
+    insertAttail(tail , head, 5);
     print(head);
 
     insertAtMiddle(head, tail , 2 , 0);
