@@ -75,10 +75,10 @@ int main()
     insertAtTail(tail, 15);
     print(head);
 
-    insertAtMiddle(head, tail, 4, 22);
+    insertAtMiddle(head, tail, 2, 22);
     print(head);
     insertAtMiddle(head, tail, 1, 220);
     print(head);
-    insertAtMiddle(head, tail, 3, 999999);
-    print(head);
+    // insertAtMiddle(head, tail, 3, 999999);
+    // print(head);
 }

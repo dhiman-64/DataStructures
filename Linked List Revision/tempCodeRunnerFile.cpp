@@ -1,4 +1,4 @@
-insertAtMiddle(head, tail, 0, 80);
-    // print(head);
-    // insertAtMiddle(head, tail, 5, 180);
-    // print(head);
+ insertAtMiddle(head, tail, 4, 22);
+    print(head);
+    insertAtMiddle(head, tail, 1, 220);
+    print(head);
