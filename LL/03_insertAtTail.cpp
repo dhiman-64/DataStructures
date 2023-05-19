@@ -24,21 +24,37 @@ void print(Node* head)
     cout<<endl;
 }
 
-void insertAtTail(Node* &tail , int data)
+void insertAtTail(Node* &tail ,Node* &head ,int data)
 {
-    Node* newNode = new Node(data);
-    tail->next = newNode;
-    tail = tail->next;
+    if(tail == NULL)
+    {
+        Node* newNode = new Node(data);
+        head = newNode;
+        tail = newNode;
+    }
+    else
+    {
+        Node* newNode = new Node(data);
+        tail->next = newNode;
+        tail = tail->next;
+    }
+    
 }
 
 int main()
 {
+    /*
     Node* n1 = new Node(1);
     Node* head = n1;
     Node* tail = n1;
+    */
 
-    insertAtTail(tail , 2);
-    insertAtTail(tail , 3);
+   Node* head = NULL;
+   Node* tail = NULL;
+   
+
+    insertAtTail(tail , head, 2);
+    insertAtTail(tail , head, 3);
     print(head);
 
 }
