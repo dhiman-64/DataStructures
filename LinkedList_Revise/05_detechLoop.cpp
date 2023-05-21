@@ -2,6 +2,9 @@
 
 /*
 
+    TC - N
+    SC - N
+
 bool detectLoop(Node* head)
 {
     if(head == NULL)
