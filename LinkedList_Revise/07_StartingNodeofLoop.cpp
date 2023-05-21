@@ -19,8 +19,13 @@ Node* floyd(Node* head)
             fast = fast->next;
         }
         slow = slow->next;
+
+        if(fast == slow)
+        {
+            return slow;
+        }
     }
-    return slow;
+    return NULL;
 }
 
 Node* getStarting(Node* head)
