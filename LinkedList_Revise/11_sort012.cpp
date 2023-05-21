@@ -4,7 +4,7 @@
 
         // Naive Approach
             TC - N+N = N
-            SC - N
+            SC - 1
 
 Node* sort012(Node* head)
 {
@@ -58,9 +58,9 @@ Node* sort012(Node* head)
 
 /*
 
-    // Optimised Approach
-        TC - 
-        SC - 
+    // Optimised Approach -> if data replacement is not allowed
+        TC - N
+        SC - 1
 
 
 void insertAtTail(Node* &tail , Node* curr)
