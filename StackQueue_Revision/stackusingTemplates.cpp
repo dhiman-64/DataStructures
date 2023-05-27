@@ -60,7 +60,7 @@ class Stack{
         if(isempty())
         {
             cout<<"Stack Empty"<<endl;
-            return INT_MIN;
+            return 0;
         }
         nextIndex--;
         return data[nextIndex];
@@ -72,7 +72,7 @@ class Stack{
         if(isempty())
         {
             cout<<"Stack Empty"<<endl;
-            return INT_MIN;
+            return 0;
         }
         return data[nextIndex-1];
     }
