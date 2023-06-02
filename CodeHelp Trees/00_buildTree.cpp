@@ -31,6 +31,7 @@ Node* buildTree(Node* root)
     root->left = buildTree(root->left);
     cout<<"Right data for: "<<data<<endl;
     root->right = buildTree(root->right);
+    return root;
 }
 
 int main()
