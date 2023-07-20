@@ -1,0 +1,74 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class Node{
+    public:
+        int data;
+        Node* next;
+    // constructor
+    Node( int data )
+    {
+        this->data = data;
+        this->next = NULL;
+    }
+    // destructor
+    ~Node()
+    {
+        int value = this->data;
+        while( this->next != NULL )
+        {
+            delete next;
+            this->next = NULL;
+        }
+        cout<<"Free Mem: "<<value<<endl;
+    }
+};
+
+
+void print( Node* &tail )
+{
+    Node* temp = tail;
+    do{
+        cout<<tail->data<<" ";
+        tail = tail->next;
+    }
+    while( tail != temp );
+    cout<<endl;
+}
+
+
+void insertion( Node* &tail, int element, int data )
+{
+    if( tail == NULL )
+    {
+        Node* newNode = new Node(data);
+        tail = newNode;
+        newNode->next = newNode;
+    }
+    else
+    {
+        Node* curr = tail;
+        while( curr->data != element )
+        {
+            curr = curr->next;
+        }
+        Node* newNode = new Node(data);
+        newNode->next = curr->next;
+        curr->next = newNode;
+    }
+}
+
+
+int main()
+{
+    Node* tail = NULL;
+    insertion(tail, 1, 1);
+    insertion(tail, 1, 2);
+    insertion(tail, 2, 3);
+    insertion(tail, 3, 4);
+    insertion(tail, 4, 5);
+    print(tail);
+    
+    return 0;
+}
